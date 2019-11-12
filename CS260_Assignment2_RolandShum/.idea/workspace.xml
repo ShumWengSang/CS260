@@ -13,19 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bb6bbc7b-ba04-4e48-9f45-aad2957cbfff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SocketAddress.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/SocketAddress.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SocketAddress.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/SocketAddress.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SocketUtil.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/SocketUtil.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SocketUtil.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/SocketUtil.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Source.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TCPSocket.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/TCPSocket.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TCPSocket.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/TCPSocket.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UDPSocket.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/UDPSocket.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UDPSocket.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/UDPSocket.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utility.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utility.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utility.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utility.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stdafx.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/stdafx.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,8 +31,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Source.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="294">
+              <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -69,7 +57,7 @@
         <entry file="file:///usr/include/x86_64-linux-gnu/bits/socket.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="122">
-              <caret line="32" column="14" lean-forward="true" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
+              <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -78,7 +66,7 @@
         <entry file="file:///usr/include/x86_64-linux-gnu/bits/types.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="122">
-              <caret line="196" column="11" lean-forward="true" selection-start-line="196" selection-start-column="11" selection-end-line="196" selection-end-column="11" />
+              <caret line="196" column="11" selection-start-line="196" selection-start-column="11" selection-end-line="196" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -87,7 +75,7 @@
         <entry file="file:///usr/include/x86_64-linux-gnu/sys/socket.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
-              <caret line="232" column="11" lean-forward="true" selection-start-line="232" selection-start-column="11" selection-end-line="232" selection-end-column="11" />
+              <caret line="232" column="11" selection-start-line="232" selection-start-column="11" selection-end-line="232" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -96,7 +84,7 @@
         <entry file="file://$PROJECT_DIR$/src/SocketUtil.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="154">
-              <caret line="24" column="30" lean-forward="true" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+              <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
               <folding>
                 <element signature="e#13#32#0" expanded="true" />
               </folding>
@@ -108,7 +96,7 @@
         <entry file="file://$PROJECT_DIR$/src/stdafx.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-231">
-              <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
               <folding>
                 <element signature="e#364#386#0" expanded="true" />
                 <element signature="e#590#607#0" expanded="true" />
@@ -121,7 +109,7 @@
         <entry file="file://$PROJECT_DIR$/src/SocketUtil.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="91">
-              <caret line="63" column="59" lean-forward="true" selection-start-line="63" selection-start-column="59" selection-end-line="63" selection-end-column="59" />
+              <caret line="63" column="59" selection-start-line="63" selection-start-column="59" selection-end-line="63" selection-end-column="59" />
               <folding>
                 <element signature="e#39#58#0" expanded="true" />
                 <element signature="e#153#351#0" expanded="true" />
@@ -149,8 +137,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SocketAddress.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+            <state relative-caret-position="204">
+              <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -175,12 +163,12 @@
         <option value="$PROJECT_DIR$/src/Utility.cpp" />
         <option value="$PROJECT_DIR$/src/SocketAddress.cpp" />
         <option value="$PROJECT_DIR$/src/Utility.h" />
-        <option value="$PROJECT_DIR$/src/Source.cpp" />
         <option value="$PROJECT_DIR$/src/stdafx.h" />
         <option value="$PROJECT_DIR$/src/SocketUtil.h" />
         <option value="$PROJECT_DIR$/src/SocketUtil.cpp" />
         <option value="$PROJECT_DIR$/src/TCPSocket.cpp" />
         <option value="$PROJECT_DIR$/src/SocketAddress.h" />
+        <option value="$PROJECT_DIR$/src/Source.cpp" />
       </list>
     </option>
   </component>
@@ -251,12 +239,12 @@
       <updated>1573341249328</updated>
       <workItem from="1573341253708" duration="612000" />
       <workItem from="1573344839467" duration="2121000" />
-      <workItem from="1573347335324" duration="15498000" />
+      <workItem from="1573347335324" duration="16219000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18231000" />
+    <option name="totallyTimeSpent" value="18952000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1366" height="728" extended-state="6" />
@@ -267,7 +255,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.16751269" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32994923" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32994923" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -364,7 +352,7 @@
     <entry file="file://$PROJECT_DIR$/src/stdafx.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-231">
-          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
           <folding>
             <element signature="e#364#386#0" expanded="true" />
             <element signature="e#590#607#0" expanded="true" />
@@ -382,7 +370,7 @@
     <entry file="file://$PROJECT_DIR$/src/SocketUtil.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
-          <caret line="24" column="30" lean-forward="true" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
           <folding>
             <element signature="e#13#32#0" expanded="true" />
           </folding>
@@ -392,7 +380,7 @@
     <entry file="file://$PROJECT_DIR$/src/SocketUtil.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="91">
-          <caret line="63" column="59" lean-forward="true" selection-start-line="63" selection-start-column="59" selection-end-line="63" selection-end-column="59" />
+          <caret line="63" column="59" selection-start-line="63" selection-start-column="59" selection-end-line="63" selection-end-column="59" />
           <folding>
             <element signature="e#39#58#0" expanded="true" />
             <element signature="e#153#351#0" expanded="true" />
@@ -417,21 +405,21 @@
     <entry file="file:///usr/include/x86_64-linux-gnu/sys/socket.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
-          <caret line="232" column="11" lean-forward="true" selection-start-line="232" selection-start-column="11" selection-end-line="232" selection-end-column="11" />
+          <caret line="232" column="11" selection-start-line="232" selection-start-column="11" selection-end-line="232" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file:///usr/include/x86_64-linux-gnu/bits/types.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
-          <caret line="196" column="11" lean-forward="true" selection-start-line="196" selection-start-column="11" selection-end-line="196" selection-end-column="11" />
+          <caret line="196" column="11" selection-start-line="196" selection-start-column="11" selection-end-line="196" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file:///usr/include/x86_64-linux-gnu/bits/socket.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
-          <caret line="32" column="14" lean-forward="true" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
+          <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -448,15 +436,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SocketAddress.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+        <state relative-caret-position="204">
+          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Source.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="294">
+          <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

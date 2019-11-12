@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 
 	int readCount = 0;
 	int currentRead = 0;
-	while((currentRead = socket->Receive(buffer + readCount, sizeof(buffer)) - readCount) != 0)
+	while((currentRead = socket->Receive(buffer + readCount, sizeof(buffer) - readCount)) != 0)
 	{
 		readCount += currentRead;
 		// Empty
@@ -42,7 +42,6 @@ int main(int argc, char *argv[])
 	
 	// Print it out.
 	std::cout << buffer << std::endl;
-	system("PAUSE");
 	SocketUtil::DeInit();
 	return 1;
 }
