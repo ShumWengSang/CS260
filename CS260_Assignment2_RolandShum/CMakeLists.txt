@@ -10,5 +10,5 @@ add_executable(CS260_Assignment2_RolandShum
         src/SocketAddress.h
         src/SocketUtil.h
         src/Source.cpp
-        src/UDPSocket.cpp
-        src/UDPSocket.h)
+        src/stdafx.h
+        src/SocketUtil.cpp src/TCPSocket.cpp src/TCPSocket.h src/Utility.cpp src/Utility.h)

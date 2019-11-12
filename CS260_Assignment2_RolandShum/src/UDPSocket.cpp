@@ -15,7 +15,7 @@ int UDPSocket::Bind(const SocketAddress& inToAddress)
 		SocketUtil::ReportError("UDPSOCKET::Bind");
 		return SocketUtil::GetLastError();
 	}
-	return NO_ERROR;
+	return 0;
 }
 
 int UDPSocket::SendTo(void * inData, int inLen, const SocketAddress & inTo)

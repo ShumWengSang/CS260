@@ -1,39 +1,34 @@
 #pragma once
-#include <cstdint>
-#include <WinSock2.h>
-#include <memory>
-#include <string>
-
 class SocketAddress
 {
 public:
-	SocketAddress(std::string ipAddress, uint16_t inPort);
+    SocketAddress( uint32_t inAddress, uint16_t inPort );
 
-	SocketAddress(uint32_t inAddress, uint16_t inPort);
+    explicit SocketAddress( const sockaddr& inSockAddr );
 
+    SocketAddress();
 
-	SocketAddress(SocketAddress const& other);
+    bool operator==( const SocketAddress& inOther ) const;
 
-	size_t GetSize() const;
+    size_t GetHash() const;
 
-	~SocketAddress() = default;
+    uint32_t GetSize() const;
 
-	sockaddr GetSocket() const;
+    std::string	ToString() const;
 
 private:
-	sockaddr mSockaddr;
-	sockaddr_in* GetAsSockAddrIn();
-	friend class UDPSocket;
+    friend class UDPSocket;
+    friend class TCPSocket;
+
+    sockaddr mSockAddr;
+
+    uint32_t& GetIP4Ref();
+	const uint32_t GetIP4Ref() const;
+
+    sockaddr_in*			GetAsSockAddrIn();
+    const	sockaddr_in*	GetAsSockAddrIn()	const;
+
 };
 
-inline sockaddr_in* SocketAddress::GetAsSockAddrIn()
-{
-	return reinterpret_cast<sockaddr_in*>(&mSockaddr);
-}
+using SocketAddressPtr = std::shared_ptr< SocketAddress >;
 
-inline size_t SocketAddress::GetSize() const
-{
-	return sizeof(sockaddr);
-}
-
-using SocketAddressPtr = std::shared_ptr<SocketAddress>;

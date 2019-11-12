@@ -8,7 +8,8 @@
 
 class Utility
 {
-
+public:
+    static std::string Sprintf( const char* inFormat, ... );
 };
 
 
