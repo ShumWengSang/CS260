@@ -1,0 +1,15 @@
+//
+// Created by roland on 11/9/19.
+//
+
+#ifndef CS260_ASSIGNMENT2_ROLANDSHUM_TCPSOCKET_H
+#define CS260_ASSIGNMENT2_ROLANDSHUM_TCPSOCKET_H
+
+
+class TCPSocket
+{
+
+};
+
+
+#endif //CS260_ASSIGNMENT2_ROLANDSHUM_TCPSOCKET_H
