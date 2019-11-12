@@ -15,17 +15,30 @@ int main(int argc, char *argv[])
 	// Get the name of the exe from argv
 	strcpy(buffer, argv[0]);
 	
-//	UDPSocket socket = SocketUtil::CreateUDPSocket();
-//	SocketAddress targetAddress("54.190.216.85", 8888);
-//
-//	socket.SendTo(buffer, strlen(buffer), targetAddress);
-//
-//	int readCount = socket.ReceiveFrom(buffer, sizeof(buffer), targetAddress);
+	SocketAddress targetAddress("54.190.216.85", 8888);
+	TCPSocketPtr socket = SocketUtil::CreateTCPSocket(INET);
 
-	// Ending the line count.
-//	buffer[readCount + 1] = '0';
+	if(socket->Connect(targetAddress) != 0)
+	{
+		// Error
+		std::cout << "Error." << std::endl;
+		exit(0);
+	}
 
-	// Convert the 
+	if(socket->Send(buffer, strlen(buffer)) == -1)
+	{
+		// Error
+		std::cout << "Error." << std::endl;
+	}
+
+	int readCount = 0;
+	int currentRead = 0;
+	while((currentRead = socket->Receive(buffer + readCount, sizeof(buffer)) - readCount) != 0)
+	{
+		readCount += currentRead;
+		// Empty
+	}
+	buffer[readCount + 1] = '\0';
 	
 	// Print it out.
 	std::cout << buffer << std::endl;

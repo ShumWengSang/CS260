@@ -63,6 +63,13 @@ SocketAddress::SocketAddress(uint32_t inAddress, uint16_t inPort)
     GetAsSockAddrIn()->sin_port = htons( inPort );
 }
 
+SocketAddress::SocketAddress(std::string_view ipAddress, uint16_t inPort)
+{
+	inet_pton(AF_INET, ipAddress.data(), &(GetAsSockAddrIn()->sin_addr));
+	GetAsSockAddrIn()->sin_family = AF_INET;
+	GetAsSockAddrIn()->sin_port = htons(inPort);
+}
+
 SocketAddress::SocketAddress(const sockaddr &inSockAddr) {
     memcpy( &mSockAddr, &inSockAddr, sizeof( sockaddr ) );
 }
