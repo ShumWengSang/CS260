@@ -8,14 +8,14 @@
 
 int TCPSocket::Connect(const SocketAddress &inAddress)
 {
-    int err = connect(mSocket, &inAddress.mSockAddr, inAddress.GetSize());
-
-    if(err < 0)
-    {
-        SocketUtil::ReportError("TCPSocket::Connect");
-        return -SocketUtil::GetLastError();
-    }
-    return NO_ERROR;
+	int err = connect(mSocket, &inAddress.mSockAddr, inAddress.GetSize());
+	
+	if (err < 0)
+	{
+		SocketUtil::ReportError("TCPSocket::Connect");
+		return -SocketUtil::GetLastError();
+	}
+	return NO_ERROR;
 }
 
 int TCPSocket::Listen(int inBackLog)
@@ -60,14 +60,39 @@ int TCPSocket::Send(const void *inData, int inLen)
 
 int TCPSocket::Receive(void *inData, int inLen)
 {
-    int bytesReceivedCount = recv(mSocket, static_cast<char*>(inData), inLen, 0);
+	int bytesReceivedCount = recv(mSocket, static_cast<char*>(inData), inLen, 0);
+	if (bytesReceivedCount < 0)
+	{
+		int error = SocketUtil::GetLastError(false);
+		if(error == WSAEWOULDBLOCK)
+		{
+			return -WSAEWOULDBLOCK;
+		}
+		
+		SocketUtil::ReportError("TCPSocket::Receive");
+		return -error;
+	}
+	return bytesReceivedCount;
+}
 
-    if(bytesReceivedCount < 0)
-    {
-        SocketUtil::ReportError("TCPSocket::Receive");
-        return -SocketUtil::GetLastError();
-    }
-    return bytesReceivedCount;
+void TCPSocket::ShutDown()
+{
+	// If we are in non-blocking, set it back to blocking.
+	if (isblockingMode)
+	{
+		u_long iMode = 0;
+		ioctlsocket(mSocket, FIONBIO, &iMode);
+	}
+	shutdown(mSocket, SD_SEND);
+
+	char LeftOverBuffer[1000] = {};
+	int countsReceived = this->Receive(&LeftOverBuffer, sizeof(LeftOverBuffer));
+	if(countsReceived < 0)
+	{
+		SocketUtil::ReportError("Shutdown not graceful.");
+		// Graceful exit not possible.
+	}
+	
 }
 
 int TCPSocket::Bind( const SocketAddress& inBindAddress )
@@ -82,8 +107,19 @@ int TCPSocket::Bind( const SocketAddress& inBindAddress )
     return NO_ERROR;
 }
 
-TCPSocket::~TCPSocket()
+bool TCPSocket::SwitchBlocking()
 {
+	// Prob win32
+	isblockingMode = !isblockingMode;
+	u_long iMode = isblockingMode;
+	int iResult = ioctlsocket(mSocket, FIONBIO, &iMode);
+	if (iResult != NO_ERROR)
+		printf("ioctlsocket failed with error: %ld\n", iResult);
+	return isblockingMode;
+}
+
+TCPSocket::~TCPSocket()
+{	
 #if _WIN32
     closesocket( mSocket );
 #else

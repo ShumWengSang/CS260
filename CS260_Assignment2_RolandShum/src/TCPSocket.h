@@ -19,10 +19,14 @@ public:
     int Send(const void* inData, int inLen);
     int Receive(void* inBuffer, int inLen);
 
+	void ShutDown();
+	
+	bool SwitchBlocking();
 private:
     friend class SocketUtil;
     explicit TCPSocket(SOCKET inSocket) : mSocket(inSocket){}
     SOCKET mSocket;
+	bool isblockingMode = 0;
 };
 typedef std::shared_ptr<TCPSocket> TCPSocketPtr;
 

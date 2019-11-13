@@ -4,7 +4,7 @@
 #include "SocketAddress.h"
 
 // An PIv6 theoretically can hold 64kb
-#define BUFFER_SIZE 64000
+constexpr int BUFFER_SIZE = 16000;
 
 int main(int argc, char *argv[])
 {
@@ -24,24 +24,37 @@ int main(int argc, char *argv[])
 		std::cout << "Error." << std::endl;
 		exit(0);
 	}
-
+	
 	if(socket->Send(buffer, strlen(buffer)) == -1)
 	{
 		// Error
 		std::cout << "Error." << std::endl;
 	}
 
-	int readCount = 0;
-	int currentRead = 0;
-	while((currentRead = socket->Receive(buffer + readCount, sizeof(buffer) - readCount)) != 0)
+	// Switch to non-blocking socket
+	socket->SwitchBlocking();
+
+	long totalReadCount = 0;
+	long currentReadCount = 0;
+	do
 	{
-		readCount += currentRead;
-		// Empty
-	}
-	buffer[readCount + 1] = '\0';
-	
+		currentReadCount = socket->Receive(buffer + totalReadCount, sizeof(buffer) - totalReadCount);
+		if(currentReadCount == (-WSAEWOULDBLOCK))
+		{
+			std::cout << ".";
+			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+			continue;
+		}
+		totalReadCount += currentReadCount;
+	} while (currentReadCount != 0);
+	buffer[totalReadCount + 1] = '\0';
+
 	// Print it out.
 	std::cout << buffer << std::endl;
+
+	// Destroy
+	socket->ShutDown();
+	
 	SocketUtil::DeInit();
 	return 1;
 }
