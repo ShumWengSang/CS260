@@ -111,7 +111,7 @@ void TCPSocket::SetBlocking(bool setBlocking)
 	// Prob win32
 	isblockingMode = setBlocking;
 #ifdef _WIN32
-	long iResult = ioctlsocket(mSocket, FIONBIO, &isblockingMode);
+	long iResult = ioctlsocket(mSocket, FIONBIO, (u_long*)(&isblockingMode));
 #elif __linux__
     long iResult = fcntl(mSocket, F_SETFL, O_NONBLOCK);
 #endif
