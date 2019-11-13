@@ -26,15 +26,14 @@
 #include <netinet/ip.h>
 #include <sys/types.h>
 #include <errno.h>
+#include <fcntl.h>
 using SOCKET = int;
 const int INVALID_SOCKET = -1;
 const int WSAECONNRESET = ECONNRESET;
 const int WSAEWOULDBLOCK = EAGAIN;
 const int SOCKET_ERROR = -1;
 const int NO_ERROR = 0;
-
-// Functions in linux as windows
-#define ioctlsocket ioctl
+const int SD_SEND = 1;
 
 #endif
 

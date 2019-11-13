@@ -45,9 +45,10 @@ int SocketUtil::GetLastError(bool coutInfo)
 		std::cout << "Error from WSA is : " << error << std::endl;
 	return error;
     #else
+	int error = errno;
 	if (coutInfo)
 		std::cout << "Err not done in linux yet xD";
-    return 0;
+    return error;
     #endif
 }
 

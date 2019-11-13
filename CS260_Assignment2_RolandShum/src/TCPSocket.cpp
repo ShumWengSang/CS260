@@ -69,7 +69,7 @@ int TCPSocket::Receive(void *inData, int inLen)
 			return -WSAEWOULDBLOCK;
 		}
 		
-		SocketUtil::ReportError("TCPSocket::Receive");
+		SocketUtil::ReportError("TCPSocket::Receive, error");
 		return -error;
 	}
 	return bytesReceivedCount;
@@ -80,8 +80,7 @@ void TCPSocket::ShutDown()
 	// If we are in non-blocking, set it back to blocking.
 	if (isblockingMode)
 	{
-		u_long iMode = 0;
-		ioctlsocket(mSocket, FIONBIO, &iMode);
+        SetBlocking(false);
 	}
 	shutdown(mSocket, SD_SEND);
 
@@ -107,15 +106,17 @@ int TCPSocket::Bind( const SocketAddress& inBindAddress )
     return NO_ERROR;
 }
 
-bool TCPSocket::SwitchBlocking()
+void TCPSocket::SetBlocking(bool setBlocking)
 {
 	// Prob win32
-	isblockingMode = !isblockingMode;
-	u_long iMode = isblockingMode;
-	int iResult = ioctlsocket(mSocket, FIONBIO, &iMode);
+	isblockingMode = setBlocking;
+#ifdef _WIN32
+	long iResult = ioctlsocket(mSocket, FIONBIO, &isblockingMode);
+#elif __linux__
+    long iResult = fcntl(mSocket, F_SETFL, O_NONBLOCK);
+#endif
 	if (iResult != NO_ERROR)
 		printf("ioctlsocket failed with error: %ld\n", iResult);
-	return isblockingMode;
 }
 
 TCPSocket::~TCPSocket()

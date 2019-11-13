@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 	}
 
 	// Switch to non-blocking socket
-	socket->SwitchBlocking();
+    socket->SetBlocking(true);
 
 	long totalReadCount = 0;
 	long currentReadCount = 0;

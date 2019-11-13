@@ -21,7 +21,7 @@ public:
 
 	void ShutDown();
 	
-	bool SwitchBlocking();
+	void SetBlocking(bool setBlocking);
 private:
     friend class SocketUtil;
     explicit TCPSocket(SOCKET inSocket) : mSocket(inSocket){}
