@@ -2,7 +2,6 @@
 // Created by roland on 11/9/19.
 //
 #include "stdafx.h"
-#include "UDPSocket.h"
 #include "SocketUtil.h"
 
 
@@ -14,9 +13,9 @@ void SocketUtil::Init()
     int iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
     if (iResult)
     {
-        std::cout << "Winsock intialisation failure" << std::endl;
-        WSACleanup();
-        return;
+    	std::cout << "Winsock intialisation failure" << std::endl;
+    	WSACleanup();
+    	return;
     }
     #else
     return;
@@ -42,20 +41,18 @@ int SocketUtil::GetLastError(bool coutInfo)
     #ifdef _WIN32
     int error = WSAGetLastError();
     if(coutInfo)
-        std::cout << "Error from WSA is : " << error << std::endl;
+    	std::cout << "Error from WSA is : " << error << std::endl;
     return error;
     #else
     int error = errno;
     if (coutInfo)
-        std::cout << "Err not done in linux yet xD";
+    	std::cout << "Err not done in linux yet xD";
     return error;
     #endif
 }
 
 SOCKET SocketUtil::CreateSocket(int protocol)
 {
-    SOCKET result = INVALID_SOCKET;
-
     int type = SOCK_DGRAM;
     if(protocol == IPPROTO_TCP)
         type = SOCK_STREAM;
@@ -64,9 +61,8 @@ SOCKET SocketUtil::CreateSocket(int protocol)
 
 TCPSocketPtr SocketUtil::CreateTCPSocket(SocketAddressFamily inFamily )
 {
-    u_long iMode = 1;
     SOCKET s = socket( inFamily, SOCK_STREAM, IPPROTO_TCP );
-    
+
     if( s != INVALID_SOCKET )
     {
         return TCPSocketPtr( new TCPSocket( s ) );
@@ -82,20 +78,22 @@ fd_set* SocketUtil::FillSetFromVector(fd_set& outSet, const std::vector< TCPSock
 {
     if (inSockets)
     {
-        FD_ZERO(&outSet);
+    	FD_ZERO(&outSet);
 
-        for (const TCPSocketPtr& socket : *inSockets)
-        {
-            FD_SET(socket->mSocket, &outSet);
+    	for (const TCPSocketPtr& socket : *inSockets)
+    	{
+    		FD_SET(socket->mSocket, &outSet);
 #if !_WIN32
-            ioNaxNfds = std::max(ioNaxNfds, socket->mSocket);
+    		ioNaxNfds = std::max(ioNaxNfds, socket->mSocket);
+#else
+        (void)ioNaxNfds;
 #endif
-        }
-        return &outSet;
+    	}
+    	return &outSet;
     }
     else
     {
-        return nullptr;
+    	return nullptr;
     }
 }
 
@@ -103,14 +101,14 @@ void SocketUtil::FillVectorFromSet(std::vector< TCPSocketPtr >* outSockets, cons
 {
     if (inSockets && outSockets)
     {
-        outSockets->clear();
-        for (const TCPSocketPtr& socket : *inSockets)
-        {
-            if (FD_ISSET(socket->mSocket, &inSet))
-            {
-                outSockets->push_back(socket);
-            }
-        }
+    	outSockets->clear();
+    	for (const TCPSocketPtr& socket : *inSockets)
+    	{
+    		if (FD_ISSET(socket->mSocket, &inSet))
+    		{
+    			outSockets->push_back(socket);
+    		}
+    	}
     }
 }
 
@@ -134,9 +132,9 @@ int SocketUtil::Select(const std::vector< TCPSocketPtr >* inReadSet,
 
     if (toRet > 0)
     {
-        FillVectorFromSet(outReadSet, inReadSet, read);
-        FillVectorFromSet(outWriteSet, inWriteSet, write);
-        FillVectorFromSet(outExceptSet, inExceptSet, except);
+    	FillVectorFromSet(outReadSet, inReadSet, read);
+    	FillVectorFromSet(outWriteSet, inWriteSet, write);
+    	FillVectorFromSet(outExceptSet, inExceptSet, except);
     }
     return toRet;
 }
